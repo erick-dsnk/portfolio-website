@@ -1,11 +1,17 @@
 "use client";
-import Image from "next/image";
+import { navLinks } from "@/config/variables";
+import useScrollDirection from "@/hooks/useScrollDirection";
+import useScrollLock from "@/hooks/useScrollLock";
+import { useClickAway } from "@uidotdev/usehooks";
+import { Sling as Hamburger } from "hamburger-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import useScrollDirection from "../hooks/useScrollDirection";
+import SideNav from "./SideNav";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useScrollLock(isOpen, "__next");
 
   const scrollDirection = useScrollDirection({ initialDirection: "down" });
   const [scrolledToTop, setScrolledToTop] = useState(true);
@@ -22,11 +28,24 @@ const Navbar = () => {
     };
   }, []);
 
-  const navLinks = [
-    { name: "About", url: "/" },
-    { name: "Projects", url: "/" },
-    { name: "Contact", url: "/" },
-  ];
+  useEffect(() => {
+    let sidenav = document.querySelector("#sidenav");
+    let body = document.querySelector("body");
+
+    if (sidenav && body) {
+      if (isOpen === true) {
+        sidenav.classList.replace("sidenavClosed", "sidenavOpened");
+        body.classList.add("bg-blur");
+      } else {
+        sidenav.classList.replace("sidenavOpened", "sidenavClosed");
+        body.classList.remove("bg-blur");
+      }
+    }
+  }, [isOpen]);
+
+  const ref = useClickAway(() => {
+    setIsOpen(false);
+  });
 
   return (
     <header
@@ -42,12 +61,12 @@ const Navbar = () => {
         }
 
         return className;
-      })()} h-[100px] px-[25px] md:px-[40px] lg:px-[50px] backdrop-blur opacity-90 z-10 transition font-mono text-sm`}
+      })()} h-[100px] px-[25px] md:px-[40px] lg:px-[50px] backdrop-blur opacity-90 z-10 transition font-mono md:text-sm text-lg text-lightestslate`}
     >
       <nav className="flex justify-between items-center relative w-full z-20">
         <div>Eric Tabacaru</div>
 
-        <div className="hidden md:flex items-center text-lightestslate">
+        <div className="hidden md:flex items-center">
           <ol className="flex flex-row p-0 m-0 list-none">
             {navLinks &&
               navLinks.map(({ name, url }, idx) => (
@@ -58,6 +77,19 @@ const Navbar = () => {
                 </li>
               ))}
           </ol>
+        </div>
+
+        <div className="block md:hidden side-container" ref={ref as any}>
+          <Hamburger
+            toggled={isOpen}
+            onToggle={() => setIsOpen(!isOpen)}
+            direction="left"
+            size={30}
+            color="#64ffda"
+            rounded={true}
+          />
+
+          <SideNav />
         </div>
       </nav>
     </header>
