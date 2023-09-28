@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import SideLinks from "@/components/SideLinks";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -19,6 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
+
+        <SideLinks side="left" />
+        <SideLinks side="right" />
 
         {children}
       </body>
