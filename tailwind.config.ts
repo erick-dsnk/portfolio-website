@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   content: [
@@ -27,6 +28,10 @@ const config: Config = {
       sans: "Fira Sans, sans-serif",
       mono: "Space Mono, monospace",
     },
+    screens: {
+      "xs": "400px",
+      ...defaultTheme.screens
+    }
   },
   plugins: [],
 };

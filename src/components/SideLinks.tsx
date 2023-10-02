@@ -15,7 +15,7 @@ const SideLinks = ({ side }: { side: "left" | "right" }) => {
 
   if (side === "left") {
     return (
-      <div className="fixed w-5 lg:w-10 left-5 lg:left-10 right-auto bottom-0">
+      <div className="hidden md:block fixed w-5 lg:w-10 left-5 lg:left-10 right-auto bottom-0">
         <ul className="flex flex-col items-center text-lightestslate m-0 p-0 list-none after:content-[''] after:w-[1px] after:h-[90px] after:bg-lightestslate after:block">
           {socialIcons.map((icon, idx) => {
             return (
@@ -31,7 +31,7 @@ const SideLinks = ({ side }: { side: "left" | "right" }) => {
     );
   } else if (side === "right") {
     return (
-      <div className="fixed w-5 lg:w-10 right-5 lg:right-10 left-auto bottom-0">
+      <div className="hidden md:block fixed w-5 lg:w-10 right-5 lg:right-10 left-auto bottom-0">
         <div className="flex flex-col items-center text-lightestslate m-0 p-0 after:content-[''] after:w-[1px] after:h-[90px] after:bg-lightestslate after:block">
           <a
             className="font-mono text-[14px] [line-height:18px] [letter-spacing:0.1em] [writing-mode:vertical-rl] mb-5 p-2.5 hover:text-green hover:translate-y-[-3px] hover:cursor-pointer transition"

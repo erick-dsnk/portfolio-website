@@ -4,6 +4,7 @@ import useScrollDirection from "@/hooks/useScrollDirection";
 import useScrollLock from "@/hooks/useScrollLock";
 import { useClickAway } from "@uidotdev/usehooks";
 import { Sling as Hamburger } from "hamburger-react";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import SideNav from "./SideNav";
@@ -64,7 +65,14 @@ const Navbar = () => {
       })()} h-[100px] px-[25px] md:px-[40px] lg:px-[50px] backdrop-blur opacity-90 z-10 transition font-mono md:text-sm text-lg text-lightestslate`}
     >
       <nav className="flex justify-between items-center relative w-full z-20">
-        <div>Eric Tabacaru</div>
+        <div>
+          <Image
+            src="/logo.png"
+            alt="Eric Tabacaru Logo"
+            height={42}
+            width={42}
+          />
+        </div>
 
         <div className="hidden md:flex items-center">
           <ol className="flex flex-row p-0 m-0 list-none">
@@ -89,7 +97,7 @@ const Navbar = () => {
             rounded={true}
           />
 
-          <SideNav />
+          <SideNav setIsOpen={setIsOpen} />
         </div>
       </nav>
     </header>
