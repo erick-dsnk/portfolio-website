@@ -62,10 +62,18 @@ const Navbar = () => {
         }
 
         return className;
-      })()} h-[100px] px-[25px] md:px-[40px] lg:px-[50px] backdrop-blur opacity-90 z-10 transition font-mono md:text-sm text-lg text-lightestslate`}
+      })()} h-[100px] px-[25px] md:px-[40px] lg:px-[50px] backdrop-blur opacity-90 z-10 custom-transition font-mono md:text-sm text-lg text-lightestslate`}
     >
       <nav className="flex justify-between items-center relative w-full z-20">
-        <div>
+        <div
+          className="hover:cursor-pointer"
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
+        >
           <Image
             src="/logo.png"
             alt="Eric Tabacaru Logo"
@@ -79,7 +87,10 @@ const Navbar = () => {
             {navLinks &&
               navLinks.map(({ name, url }, idx) => (
                 <li key={idx} className="mx-[15px] relative">
-                  <Link href={url} className="hover:text-green transition">
+                  <Link
+                    href={url}
+                    className="hover:text-green custom-transition"
+                  >
                     <span className="text-green">0{idx + 1}.</span> {name}
                   </Link>
                 </li>

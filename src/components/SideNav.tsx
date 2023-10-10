@@ -26,7 +26,7 @@ const SideNav = ({
   return (
     <aside
       id="sidenav"
-      className="flex md:hidden justify-center items-center fixed top-0 bottom-0 right-0 min-h-[100vh] w-[min(75vw,400px)] bg-lightnavy sidenavClosed transition"
+      className="flex md:hidden justify-center items-center fixed top-0 bottom-0 right-0 min-h-[100vh] w-[min(75vw,400px)] bg-lightnavy sidenavClosed custom-transition"
     >
       <nav className="flex flex-col justify-between items-center w-full">
         <div className="flex items-center justify-center w-full px-6 my-8 text-green xs:before:content-[''] xs:before:h-[1px] xs:before:grow xs:before:bg-lightestslate xs:after:content-[''] xs:after:h-[1px] xs:after:grow xs:after:bg-lightestslate">
@@ -38,7 +38,10 @@ const SideNav = ({
             {navLinks &&
               navLinks.map(({ name, url }, idx) => (
                 <li key={idx} className="my-[15px] relative">
-                  <Link href={url} className="hover:text-green transition">
+                  <Link
+                    href={url}
+                    className="hover:text-green custom-transition"
+                  >
                     <span className="text-green">
                       0{idx + 1}.<br />
                     </span>{" "}
@@ -60,7 +63,7 @@ const SideNav = ({
                   <a
                     href={links[idx]}
                     target="_blank"
-                    className="inline-block py-[10px] lg:p-[10px] hover:text-green hover:translate-y-[-3px] hover:cursor-pointer transition"
+                    className="inline-block py-[10px] lg:p-[10px] hover:text-green hover:translate-y-[-3px] hover:cursor-pointer custom-transition"
                   >
                     {icon}
                   </a>
