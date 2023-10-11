@@ -1,5 +1,3 @@
-// TODO: Remove overlay when scrolling to a certain level on mobile devices
-
 const AboutImage = () => {
   return (
     <div className="about-wrapper">

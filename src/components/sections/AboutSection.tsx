@@ -1,20 +1,45 @@
 "use client";
 
+import { useCallback, useEffect } from "react";
 import AboutImage from "../AboutImage";
 
 // TODO: Remove lorem ipsum and add real text
-
+// TODO: Fix scroll effect on mobile devices
 const AboutSection = () => {
+  const onScroll = useCallback((e: Event) => {
+    const { scrollY } = window;
+    const image = document.querySelector(".about-wrapper");
+
+    let imagePos = image?.getBoundingClientRect().top;
+
+    if (imagePos) {
+      if (imagePos - scrollY < 200 && imagePos - scrollY > -200) {
+        image?.querySelector(".about-overlay")?.setAttribute("opacity", "0");
+      } else {
+        image?.querySelector(".about-overlay")?.setAttribute("opacity", "1");
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <section
       id="about"
-      className="flex flex-col items-start justify-center min-h-[100vh] h-[100vh] max-w-[900px] p-0 text-lightestslate"
+      className="flex flex-col items-start justify-center min-h-[100vh] max-w-[900px] py-[60px] xs:py-[80px] md:py-[100px] px-0 text-lightestslate"
     >
       <h2 className="flex items-center relative w-full mt-2.5 mb-10 text-[clamp(26px,5vw,32px)] text-lightestslate [font-weight:600] [line-height:1.1] before:![content:'01.'] before:[font-weight:400] before:font-mono before:text-green before:mr-2.5 before:relative before:bottom-1 before:text-[clamp(16px,3vw,20px)] after:![content:''] after:relative after:w-full md:after:w-[200px] lg:after:w-[356px] after:h-[1px] after:bg-lightestnavy after:ml-2.5 md:after:ml-5">
-        About Me
+        About
       </h2>
 
-      <div className="flex flex-col items-center md:items-start md:grid [grid-template-columns:2fr_1fr] [gap:50px]">
+      <div className="flex flex-col items-center md:items-start md:grid [grid-template-columns:2fr_1fr] md:[gap:50px]">
         <div>
           <p className="text-slate font-sans text-xl [line-height:1.3_!important] mb-4">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem

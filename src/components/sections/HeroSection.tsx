@@ -4,7 +4,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="flex flex-col items-start justify-center min-h-[100vh] h-[100vh] max-w-[1000px] p-0 text-lightestslate"
+      className="flex flex-col items-start justify-center min-h-[100vh] h-[100vh] max-w-[1000px] p-0 text-lightestslate hero-section"
     >
       <h1 className="font-mono text-green text-[clamp(14,5vw,16)] [font-weight:400] mb-5 xs:mb-[30px] ml-0.5 xs:ml-1 [line-height:1.1]">
         Hi, my name is
