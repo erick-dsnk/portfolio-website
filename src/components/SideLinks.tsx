@@ -13,6 +13,13 @@ const SideLinks = ({ side }: { side: "left" | "right" }) => {
     <LiaDiscord key={3} size={20} />,
   ];
 
+  let links = [
+    "https://github.com/erick-dsnk",
+    "https://instagram.com/erick-dsnk",
+    "https://open.spotify.com/user/du8p75yg1h2s39iz2aepn6hio?si=15a53990c5e44676",
+    "",
+  ];
+
   if (side === "left") {
     return (
       <div className="hidden md:block fixed w-5 lg:w-10 left-5 lg:left-10 right-auto bottom-0">
@@ -20,7 +27,10 @@ const SideLinks = ({ side }: { side: "left" | "right" }) => {
           {socialIcons.map((icon, idx) => {
             return (
               <li key={idx} className="w-full list-item last-of-type:mb-5">
-                <a className="inline-block py-[10px] lg:p-[10px] hover:text-green hover:translate-y-[-3px] hover:cursor-pointer custom-transition">
+                <a
+                  className="inline-block py-[10px] lg:p-[10px] hover:text-green hover:translate-y-[-3px] hover:cursor-pointer custom-transition"
+                  href={links[idx]}
+                >
                   {icon}
                 </a>
               </li>

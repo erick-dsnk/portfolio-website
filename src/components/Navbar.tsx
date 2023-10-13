@@ -12,6 +12,14 @@ import SideNav from "./SideNav";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const scrollTo = (sectionId: string) => {
+    let section = document.querySelector(sectionId);
+
+    section?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   useScrollLock(isOpen, "__next");
 
   const scrollDirection = useScrollDirection({ initialDirection: "down" });
@@ -85,14 +93,16 @@ const Navbar = () => {
         <div className="hidden md:flex items-center">
           <ol className="flex flex-row p-0 m-0 list-none">
             {navLinks &&
-              navLinks.map(({ name, url }, idx) => (
+              navLinks.map(({ name, sectionId }, idx) => (
                 <li key={idx} className="mx-[15px] relative">
-                  <Link
-                    href={url}
-                    className="hover:text-green custom-transition"
+                  <span
+                    onClick={() => {
+                      scrollTo(sectionId as string);
+                    }}
+                    className="hover:text-green hover:cursor-pointer custom-transition"
                   >
                     <span className="text-green">0{idx + 1}.</span> {name}
-                  </Link>
+                  </span>
                 </li>
               ))}
           </ol>
@@ -108,7 +118,7 @@ const Navbar = () => {
             rounded={true}
           />
 
-          <SideNav setIsOpen={setIsOpen} />
+          <SideNav />
         </div>
       </nav>
     </header>

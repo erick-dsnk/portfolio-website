@@ -1,5 +1,5 @@
 export const navLinks = [
-  { name: "About", url: "/" },
-  { name: "Projects", url: "/" },
-  { name: "Contact", url: "/" },
+  { name: "About", sectionId: "#about" },
+  { name: "Projects", sectionId: "#projects" },
+  { name: "Contact", sectionId: "#contact" },
 ];

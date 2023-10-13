@@ -208,7 +208,9 @@ select {
   isolation: isolate;
 }
 
-.custom-transition {
+.custom-transition,
+.custom-transition::after,
+.custom-transition::before {
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
@@ -300,6 +302,7 @@ body.bg-blur > main > * {
 @media (max-width: 540px) {
   .about-wrapper {
     max-width: 80%;
+    margin-top: 50px;
   }
 }
 .about-content {

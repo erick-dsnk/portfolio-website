@@ -1,6 +1,4 @@
 import { navLinks } from "@/config/variables";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import { LiaDiscord } from "react-icons/lia";
 import {
@@ -9,11 +7,15 @@ import {
   SlSocialSpotify,
 } from "react-icons/sl";
 
-const SideNav = ({
-  setIsOpen,
-}: {
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+const scrollTo = (sectionId: string) => {
+  let section = document.querySelector(sectionId);
+
+  section?.scrollIntoView({
+    behavior: "smooth",
+  });
+};
+
+const SideNav = () => {
   let socialIcons = [
     <SlSocialGithub key={0} size={28} />,
     <SlSocialInstagram key={1} size={28} />,
@@ -21,7 +23,7 @@ const SideNav = ({
     <LiaDiscord key={3} size={28} />,
   ];
 
-  let links = ["https://github.com/erick-dsnk", "/", "/", "/"];
+  let links = ["https://github.com/erick-dsnk", "https://instagram.com/erick-dsnk", "https://open.spotify.com/user/du8p75yg1h2s39iz2aepn6hio?si=15a53990c5e44676", ""];
 
   return (
     <aside
@@ -36,17 +38,19 @@ const SideNav = ({
         <div className="flex items-center my-8">
           <ol className="flex flex-col p-0 m-0 list-none">
             {navLinks &&
-              navLinks.map(({ name, url }, idx) => (
+              navLinks.map(({ name, sectionId }, idx) => (
                 <li key={idx} className="my-[15px] relative">
-                  <Link
-                    href={url}
-                    className="hover:text-green custom-transition"
+                  <span
+                    onClick={() => {
+                      scrollTo(sectionId as string);
+                    }}
+                    className="focus:text-green hover:text-green hover:cursor-pointer custom-transition "
                   >
                     <span className="text-green">
                       0{idx + 1}.<br />
                     </span>{" "}
                     {name}
-                  </Link>
+                  </span>
                 </li>
               ))}
           </ol>
