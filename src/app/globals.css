@@ -173,16 +173,22 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
-  @media (max-width: 1080px) {
+@media (max-width: 1080px) {
+  main {
     padding: 0px 100px;
   }
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
+  main {
     padding: 0px 50px;
   }
+}
 
-  @media (max-width: 480px) {
+@media (max-width: 480px) {
+  main {
     padding: 0px 25px;
   }
 }
