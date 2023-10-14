@@ -42,27 +42,35 @@ const AboutSection = () => {
       <div className="flex flex-col items-center md:items-start md:grid [grid-template-columns:2fr_1fr] md:[gap:50px]">
         <div>
           <p className="text-slate font-sans text-xl [line-height:1.3_!important] mb-4">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo.
+            Hey! My name is Eric and I am a software engineer that specializes
+            in creating projects that live on the internet. My interest for
+            programming started back when I was 10 years old when I got a
+            beginner&apos;s book about Python. And that is how my burning
+            passion for programming first sparked.
           </p>
 
           <p className="text-slate font-sans text-xl [line-height:1.3_!important] mb-4">
-            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-            fugit, sed quia consequuntur magni dolores eos qui ratione
-            voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-            ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
-            numquam eius modi tempora incidunt ut labore et dolore magnam
-            aliquam quaerat voluptatem.
+            Along the years, I have ventured into many domains of programming.
+            From systems programming to web development, from machine learning
+            to Discord bots, I have tried a little bit of everything until I
+            settled on the web. I now work as a freelance web developer and also
+            work on other machine learning side projects!
           </p>
 
           <p className="text-slate font-sans text-xl [line-height:1.3_!important] mb-4">
-            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-            suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
-            autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
-            nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
-            voluptas nulla pariatur?
+            If you are interested in my services, have an inquiry about one of
+            my projects or want to collaborate with me on a project, go ahead
+            and{" "}
+            <span
+              onClick={() => {
+                document
+                  .querySelector("#contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="text-green hover:cursor-pointer "
+            >
+              contact me!
+            </span>
           </p>
         </div>
 
