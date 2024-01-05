@@ -3,7 +3,6 @@ import React from "react";
 import { LiaDiscord } from "react-icons/lia";
 import {
   SlSocialGithub,
-  SlSocialInstagram,
   SlSocialSpotify,
 } from "react-icons/sl";
 
@@ -18,12 +17,15 @@ const scrollTo = (sectionId: string) => {
 const SideNav = () => {
   let socialIcons = [
     <SlSocialGithub key={0} size={28} />,
-    <SlSocialInstagram key={1} size={28} />,
     <SlSocialSpotify key={2} size={28} />,
     <LiaDiscord key={3} size={28} />,
   ];
 
-  let links = ["https://github.com/erick-dsnk", "https://instagram.com/erick-dsnk", "https://open.spotify.com/user/du8p75yg1h2s39iz2aepn6hio?si=15a53990c5e44676", ""];
+  let links = [
+    "https://github.com/erick-dsnk",
+    "https://open.spotify.com/user/du8p75yg1h2s39iz2aepn6hio?si=15a53990c5e44676",
+    "",
+  ];
 
   return (
     <aside

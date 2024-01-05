@@ -5,15 +5,6 @@ import { SlSocialGithub } from "react-icons/sl";
 
 const projects = [
   {
-    title: "Tyche Agency",
-    description:
-      "Welcome to Tyche - where dreams turn into prosperity. We are Tyche Agency, one of the leading Digital Marketing agencies in Romania. We specialize in helping businesses like yours grow and succeed online.",
-    imageUrl: "/tyche-front.png",
-    imageAlt: "Tyche Agency Front Page",
-    projectUrl: "https://tyche.agency",
-    githubUrl: "https://github.com/erick-dsnk/tyche-agency",
-  },
-  {
     title: "Windswept Shire",
     description:
       "Windswept Shire is a role playing game placed in a mythical world filled with lots of creatures and loot you can collect and conquer the toughest of the monsters! After a long day of slaying mobs, you can kick back in th citadel, wander around with the townsfolk or just take a little nap in your house!",
